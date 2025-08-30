@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../dummies/getCaffeineItemDummy.dart';
-import 'helper/drink_item.dart';
+import '../home/helper/drink_item.dart';
 
 class HomepageController extends GetxController {
   @override
