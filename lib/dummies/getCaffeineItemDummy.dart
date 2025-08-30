@@ -23,4 +23,20 @@ final responseJson = [
     "eatDate": "2025-08-31",
     "eatTime": "16:00",
   },
+  {
+    "name": "레드불 오리지널",
+    "itemCount": 1,
+    "volume": 250,
+    "caffeine": 80,
+    "eatDate": "2025-08-31",
+    "eatTime": "16:00",
+  },
+  {
+    "name": "레드불 오리지널",
+    "itemCount": 1,
+    "volume": 250,
+    "caffeine": 80,
+    "eatDate": "2025-08-31",
+    "eatTime": "16:00",
+  },
 ];
