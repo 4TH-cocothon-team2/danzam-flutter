@@ -1,4 +1,4 @@
-import '../get_dio.dart';
+import 'package:Danzam/services/get_dio.dart';
 import 'package:flutter/foundation.dart';
 
 Future<Map<String, dynamic>> fetchIntakeDetail(int intake_id) async {

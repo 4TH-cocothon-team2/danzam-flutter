@@ -1,13 +1,14 @@
-import '../get_dio.dart';
 import 'package:flutter/foundation.dart';
 
-Future<Map<String, dynamic>> fetchExpectedSleepTime() async {
+import '../../get_dio.dart';
+
+Future<Map<String, dynamic>> fetchBodyCaffeineData() async {
   try {
     final dio = getDio();
     final response = await dio.get('/analysis');
     return response.data;
   } catch (e) {
-    debugPrint("fetchExpectedSleepTime Error: $e");
+    debugPrint("fetchBodyCaffeineData Error: $e");
     rethrow;
   }
 }

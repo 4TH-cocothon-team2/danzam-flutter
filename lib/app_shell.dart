@@ -1,4 +1,6 @@
-import 'settings_page.dart';
+import 'package:Danzam/screens/settings_page.dart';
+import 'package:Danzam/statistics/statistics.dart';
+
 import 'statistic_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,11 +12,7 @@ import 'home/home_main.dart';
 class AppShell extends StatelessWidget {
   const AppShell({super.key});
 
-  final List<Widget> _pages = const [
-    HomeMain(),
-    StatisticPage(),
-    SettingsPage(),
-  ];
+  final List<Widget> _pages = const [HomeMain(), Statistics(), SettingsPage()];
 
   @override
   Widget build(BuildContext context) {

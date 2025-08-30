@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'controllers/bindings/bottomnavi_binding.dart';
 import 'init_controllers.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +11,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'home/home_main.dart';
 import 'screens/intro.dart';
 
-void main() {
+void main() async {
   initControllers();
+
   runApp(const MyApp());
 }
 
