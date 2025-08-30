@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import 'components/drinked_caffeine_item.dart';
 import 'home_add.dart';
-import 'homepage_controller.dart';
+import '../controllers/homepage_controller.dart';
 
 class HomeMain extends StatefulWidget {
   const HomeMain({super.key});
@@ -90,7 +90,7 @@ class _HomeMainState extends State<HomeMain> {
                         ),
                       ],
                     ),
-                    SizedBox(height: size.height * 0.03),
+                    SizedBox(height: size.height * 0.005),
                     (controller.drinkedList.isNotEmpty)
                         ? GridView.builder(
                             shrinkWrap: true,

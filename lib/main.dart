@@ -1,8 +1,9 @@
+import 'package:cokothon25/controllers/bindings/bottomnavi_binding.dart';
 import 'package:cokothon25/init_controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'home/home_main.dart';
+import 'app_shell.dart';
 
 void main() {
   initControllers();
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: NavigationBinding(),
       color: Color(0xFFFFFFFF),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [Locale('ko', 'KR')],
-      home: const HomeMain(),
+      home: const AppShell(),
       debugShowCheckedModeBanner: false,
     );
   }
