@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
 
-import 'register.dart';
+import '../home/home_main.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -18,7 +18,7 @@ class _IntroPageState extends State<IntroPage> {
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
       Get.off(
-            () => const RegisterPage(),
+            () => const HomeMain(),
         transition: Transition.rightToLeft,
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeOutCubic,
