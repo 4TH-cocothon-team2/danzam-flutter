@@ -278,7 +278,7 @@ class _HomeEditState extends State<HomeEdit> {
       child: Row(
         children: [
           SizedBox(
-            width: size.width * 0.23,
+            width: size.width * 0.25,
             child: Text(
               label,
               style: TextStyle(
@@ -287,7 +287,7 @@ class _HomeEditState extends State<HomeEdit> {
               ),
             ),
           ),
-          SizedBox(width: size.width * 0.1),
+          SizedBox(width: size.width * 0.2),
           Expanded(
             child: GestureDetector(
               onTap: () async {
