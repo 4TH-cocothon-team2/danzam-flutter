@@ -1,5 +1,9 @@
+import 'package:Danzam/app_shell.dart';
+import 'package:Danzam/services/http/users/add_user_data.dart';
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/radio_buttons.dart';
 
 enum Gender { male, female }
@@ -17,6 +21,9 @@ class _RegisterPageState extends State<RegisterPage> {
   bool? _smoking;
   bool? _drug;
 
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,8 @@ class _RegisterPageState extends State<RegisterPage> {
           SizedBox(height: 60),
           Padding(
             padding: const EdgeInsets.only(left: 50),
-            child: Text('카페인 반감기 계산을 위해',
+            child: Text(
+              '카페인 반감기 계산을 위해',
               style: TextStyle(
                 fontFamily: 'Pretendard-Bold',
                 fontSize: 20,
@@ -38,7 +46,8 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 50),
-            child: Text('정확한 정보를 입력해주세요',
+            child: Text(
+              '정확한 정보를 입력해주세요',
               style: TextStyle(
                 fontFamily: 'Pretendard-Bold',
                 fontSize: 20,
@@ -54,7 +63,8 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 5),
-                child: Text('성별',
+                child: Text(
+                  '성별',
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
@@ -86,10 +96,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
 
-              if (_gender == Gender.female) ... [
+              if (_gender == Gender.female) ...[
                 Padding(
                   padding: const EdgeInsets.only(left: 40, bottom: 5, top: 20),
-                  child: Text('임신 여부',
+                  child: Text(
+                    '임신 여부',
                     style: TextStyle(
                       fontFamily: 'Pretendard-Bold',
                       fontSize: 16,
@@ -121,7 +132,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 10, top: 20),
-                child: Text('나이',
+                child: Text(
+                  '나이',
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
@@ -136,6 +148,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       width: 150,
                       child: TextField(
+                        controller: _ageController,
                         style: TextStyle(
                           fontFamily: 'Pretendard-Regular',
                           color: Color(0xff908F8B),
@@ -158,7 +171,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                     SizedBox(width: 10),
-                    Text('세',
+                    Text(
+                      '세',
                       style: TextStyle(
                         fontFamily: 'Pretendard-Regular',
                         fontSize: 12,
@@ -171,7 +185,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 10, top: 20),
-                child: Text('몸무게',
+                child: Text(
+                  '몸무게',
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
@@ -186,6 +201,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       width: 150,
                       child: TextField(
+                        controller: _weightController,
                         style: TextStyle(
                           fontFamily: 'Pretendard-Regular',
                           color: Color(0xff908F8B),
@@ -208,7 +224,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                     SizedBox(width: 10),
-                    Text('kg',
+                    Text(
+                      'kg',
                       style: TextStyle(
                         fontFamily: 'Pretendard-Regular',
                         fontSize: 12,
@@ -221,7 +238,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 5, top: 20),
-                child: Text('흡연 여부',
+                child: Text(
+                  '흡연 여부',
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
@@ -252,7 +270,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 5, top: 20),
-                child: Text('기타 약물 복용 여부',
+                child: Text(
+                  '기타 약물 복용 여부',
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
@@ -296,8 +315,55 @@ class _RegisterPageState extends State<RegisterPage> {
                     borderRadius: BorderRadius.circular(13),
                   ),
                 ),
-                onPressed: () {},
-                child: Text('정보 저장',
+                onPressed: () async {
+                  final ageText = _ageController.text.trim();
+                  final weightText = _weightController.text.trim();
+
+                  if (ageText.isEmpty || weightText.isEmpty) {
+                    Get.snackbar('입력 오류', '나이와 몸무게를 모두 입력해주세요.');
+                    return;
+                  }
+
+                  final age = int.tryParse(ageText);
+                  final weight = double.tryParse(weightText);
+
+                  if (age == null || weight == null) {
+                    Get.snackbar('입력 오류', '숫자 형식으로 입력해주세요.');
+                    return;
+                  }
+
+                  // TODO: 여기에 저장 처리 로직 추가
+                  final userData = {
+                    'gender': _gender?.index,
+                    'pregnancy': _pregnancy,
+                    'age': age,
+                    'weight': weight,
+                    'smoking': _smoking,
+                    'drug': _drug,
+                  };
+                  // final data = await addUserData(userData);
+                  // final userId = data['id'] ?? 0;
+                  final userId = 1;
+
+                  // 로컬 저장소에 append
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.setBool('isRegistered', true);
+                  debugPrint('isRegistered 값 변환 성공');
+                  await prefs.setInt('userId', userId);
+                  await prefs.setInt('age', age);
+                  await prefs.setDouble('weight', weight);
+                  await prefs.setBool('isSmoker', _smoking ?? false);
+                  await prefs.setBool('isPregnant', _pregnancy ?? false);
+                  await prefs.setBool('isDrug', _drug ?? false);
+                  await prefs.setInt(
+                    'gender',
+                    _gender?.index ?? 0,
+                  ); // 0: male, 1: female
+
+                  await Get.offAll(() => AppShell());
+                },
+                child: Text(
+                  '정보 저장',
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 20,
@@ -312,4 +378,3 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
-

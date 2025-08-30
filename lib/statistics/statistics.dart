@@ -20,7 +20,7 @@ class _StatisticsState extends State<Statistics> {
     final now = DateTime.now();
     final weekdays = ['월', '화', '수', '목', '금', '토', '일'];
     final today = now.weekday - 1; // 1-7을 0-6으로 변환
-    
+
     List<String> labels = [];
     for (int i = 6; i >= 0; i--) {
       int dayIndex = (today - i + 7) % 7;
@@ -33,9 +33,8 @@ class _StatisticsState extends State<Statistics> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Pretendard',
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Pretendard'),
       home: Scaffold(
         backgroundColor: const Color(0xFF333333),
         appBar: AppBar(
@@ -201,7 +200,8 @@ class _StatisticsState extends State<Statistics> {
                   children: [
                     const SizedBox(height: 20),
                     WeeklyBarChart(
-                      values: [180, 220, 150, 300, 250, 190, 210], // 7일간 카페인 섭취량 (mg)
+                      values: [180, 220, 150, 300, 250, 190, 210],
+                      // 7일간 카페인 섭취량 (mg)
                       labels: getWeekdayLabels(), // 동적으로 계산된 요일 라벨
                     ),
                   ],

@@ -50,16 +50,14 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color(0xFF333333),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           scrolledUnderElevation: 0,
           leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back,
-              color: AppColors.lightGray,
-            ),
+            icon: const Icon(Icons.arrow_back, color: AppColors.lightGray),
             onPressed: () {
               Get.off(() => const HomeMain());
             },
@@ -98,7 +96,8 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
                             animation: _rotationController1,
                             builder: (context, child) {
                               return Transform.rotate(
-                                angle: -_rotationController1.value * 2 * math.pi,
+                                angle:
+                                    -_rotationController1.value * 2 * math.pi,
                                 child: Image.asset(
                                   'assets/images/sheep.png',
                                   width: 100,
