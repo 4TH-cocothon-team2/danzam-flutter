@@ -26,6 +26,6 @@ class HomepageController extends GetxController {
 
   void loadInforms() {
     leftCaffeineLevel.value = 70.6;
-    expectedSleepTime.value = '22:00';
+    expectedSleepTime.value = '05:00';
   }
 }

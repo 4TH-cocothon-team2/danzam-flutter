@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:math' as math;
+import 'package:get/get.dart';
 import 'TipBanner.dart';
+import '../home/home_main.dart';
 
 void main() {
   runApp(const Sleeping());
@@ -58,7 +60,7 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
               color: Color(0xFFE7E6E3),
             ),
             onPressed: () {
-              Navigator.of(context).pop();
+              Get.off(() => const HomeMain());
             },
           ),
         ),
