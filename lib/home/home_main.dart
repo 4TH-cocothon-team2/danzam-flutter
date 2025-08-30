@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:get/get.dart';
 
+import '../constants/colors.dart';
 import 'components/drinked_caffeine_item.dart';
 import 'home_add.dart';
 import '../controllers/homepage_controller.dart';
@@ -46,7 +47,7 @@ class _HomeMainState extends State<HomeMain> {
                               style: TextStyle(
                                 fontSize: size.width * 0.05,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                                color: AppColors.lightGray,
                               ),
                             ),
                           ],
@@ -60,7 +61,7 @@ class _HomeMainState extends State<HomeMain> {
                               size.width * 0.28,
                               size.height * 0.01,
                             ),
-                            backgroundColor: Color(0xFFD98D4B),
+                            backgroundColor: AppColors.orange,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(13),
                             ),
@@ -76,14 +77,14 @@ class _HomeMainState extends State<HomeMain> {
                               Text(
                                 '추가하기',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: AppColors.lightGray,
                                   fontSize: size.width * 0.0325,
                                 ),
                               ),
                               SizedBox(width: size.width * 0.01),
                               Icon(
                                 Icons.arrow_forward,
-                                color: Colors.white,
+                                color: AppColors.lightGray,
                                 size: size.width * 0.045,
                               ),
                             ],
@@ -113,7 +114,7 @@ class _HomeMainState extends State<HomeMain> {
                         : Center(
                             child: Text(
                               '추가된 정보가 없습니다',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: AppColors.lightGray),
                             ),
                           ),
                     SizedBox(height: size.height * 0.03),
@@ -141,7 +142,7 @@ class _HomeMainState extends State<HomeMain> {
                             Text(
                               '체내 잔존량',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: AppColors.lightGray,
                                 fontSize: 20,
                               ),
                             ),
@@ -153,14 +154,14 @@ class _HomeMainState extends State<HomeMain> {
                                 animationDuration: 1,
                                 progressStrokeWidth: 20,
                                 backStrokeWidth: 20,
-                                progressColors: [Color(0xFFD98D4B)],
+                                progressColors: [AppColors.orange],
                                 backColor: Colors.grey.shade800,
                                 onGetText: (double value) {
                                   value = controller.leftCaffeineLevel.value;
                                   return Text(
                                     '${value}%',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: AppColors.lightGray,
                                       fontSize: size.width * 0.05,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -202,7 +203,7 @@ class _HomeMainState extends State<HomeMain> {
                             Text(
                               '예상 수면시간',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: AppColors.lightGray,
                                 fontSize: 20,
                               ),
                             ),
@@ -254,13 +255,13 @@ class _HomeMainState extends State<HomeMain> {
                           vertical: size.height * 0.02,
                         ),
                         decoration: BoxDecoration(
-                          color: Color(0xFFD98D4B),
+                          color: AppColors.orange,
                           borderRadius: BorderRadius.circular(13),
                         ),
                         child: Text(
                           '저장',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColors.lightGray,
                             fontSize: size.width * 0.045,
                             fontWeight: FontWeight.bold,
                           ),
@@ -305,21 +306,21 @@ class _HomeMainState extends State<HomeMain> {
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: Color(0xFFD98D4B), width: 1.5),
+        border: Border.all(color: AppColors.orange, width: 1.5),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             Icons.access_time,
-            color: Color(0xFFD98D4B),
+            color: AppColors.orange,
             size: size.width * 0.05,
           ),
           SizedBox(width: size.width * 0.025),
           Text(
             '${expectedSleepTime}',
             style: TextStyle(
-              color: Colors.white,
+              color: AppColors.lightGray,
               fontSize: size.width * 0.05,
               fontWeight: FontWeight.bold,
             ),

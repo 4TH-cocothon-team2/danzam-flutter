@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 
 class SleepSummaryCard extends StatelessWidget {
   final String title;
@@ -43,7 +44,7 @@ class SleepSummaryCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: titleFontSize * (size.width / 400), // 반응형 크기 조정
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                                             color: AppColors.lightGray,
                 ),
               ),
             ),

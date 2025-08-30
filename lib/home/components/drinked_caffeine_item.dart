@@ -1,6 +1,7 @@
 import '../helper/drink_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../constants/colors.dart';
 import '../home_edit.dart';
 
 class DrinkedCaffeineItem extends StatelessWidget {
@@ -41,7 +42,7 @@ class DrinkedCaffeineItem extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.lightGray,
                   fontSize: size.width * 0.035,
                   fontWeight: FontWeight.bold,
                 ),
@@ -50,7 +51,7 @@ class DrinkedCaffeineItem extends StatelessWidget {
             SizedBox(width: size.width * 0.02),
             Text(
               '${item.caffeine}mg',
-              style: TextStyle(color: Colors.white, fontSize: 12),
+              style: TextStyle(color: AppColors.lightGray, fontSize: 12),
             ),
           ],
         ),

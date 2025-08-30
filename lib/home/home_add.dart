@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 
 class HomeAdd extends StatefulWidget {
   const HomeAdd({super.key});
@@ -106,7 +107,7 @@ class _HomeAddState extends State<HomeAdd> {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(size.width * 0.03),
-                        color: const Color(0xFFD98D4B),
+                        color: AppColors.orange,
                       ),
                       child: Text(
                         '추가',
@@ -180,22 +181,22 @@ class _HomeAddState extends State<HomeAdd> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
-                  borderSide: const BorderSide(color: Color(0xFFD98D4B)),
+                  borderSide: const BorderSide(color: AppColors.orange),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
-                  borderSide: const BorderSide(color: Color(0xFFD98D4B)),
+                  borderSide: const BorderSide(color: AppColors.orange),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
                   borderSide: const BorderSide(
-                    color: Color(0xFFD98D4B),
+                    color: AppColors.orange,
                     width: 2,
                   ),
                 ),
                 disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
-                  borderSide: const BorderSide(color: Color(0xFFD98D4B)),
+                  borderSide: const BorderSide(color: AppColors.orange),
                 ),
                 suffixIcon:
                     (label == '개수' || label == '용량' || label == '카페인 함유량')
@@ -285,7 +286,7 @@ class _HomeAddState extends State<HomeAdd> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(size.width * 0.025),
-                  border: Border.all(color: const Color(0xFFD98D4B)),
+                  border: Border.all(color: AppColors.orange),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -306,7 +307,7 @@ class _HomeAddState extends State<HomeAdd> {
                     Icon(
                       Icons.calendar_month,
                       size: size.width * 0.045,
-                      color: Color(0xFFD98D4B),
+                      color: AppColors.orange,
                     ),
                   ],
                 ),
@@ -332,13 +333,13 @@ class _HomeAddState extends State<HomeAdd> {
           child: Theme(
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
-                primary: Color(0xFFD98D4B), // header background
+                primary: AppColors.orange, // header background
                 onPrimary: Colors.white, // header text color
                 onSurface: Colors.black, // body text color
               ),
               textButtonTheme: TextButtonThemeData(
                 style: TextButton.styleFrom(
-                  foregroundColor: Color(0xFFD98D4B), // button text color
+                  foregroundColor: AppColors.orange, // button text color
                 ),
               ),
             ),
@@ -359,7 +360,7 @@ class _HomeAddState extends State<HomeAdd> {
           child: Theme(
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
-                primary: Color(0xFFD98D4B), // clock dial
+                primary: AppColors.orange, // clock dial
                 onPrimary: Colors.white,
                 onSurface: Colors.black,
               ),

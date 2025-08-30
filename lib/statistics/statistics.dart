@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 import '../sleep_info/sleep_summary_card.dart';
 import 'weekly_bar_chart.dart';
 
@@ -47,7 +48,7 @@ class _StatisticsState extends State<Statistics> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: size.width * 0.05,
-                color: Colors.white,
+                color: AppColors.lightGray,
               ),
             ),
           ),
@@ -77,7 +78,7 @@ class _StatisticsState extends State<Statistics> {
                                   '210',
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
-                                    color: Color(0xFFAB7F55),
+                                    color: AppColors.orange,
                                   ),
                                 ),
                                 Text(
@@ -85,7 +86,7 @@ class _StatisticsState extends State<Statistics> {
                                   style: TextStyle(
                                     fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: AppColors.lightGray,
                                   ),
                                 ),
                               ],
@@ -108,7 +109,7 @@ class _StatisticsState extends State<Statistics> {
                                   '01:00',
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
-                                    color: Color(0xFFAB7F55),
+                                    color: AppColors.orange,
                                   ),
                                 ),
                                 Text(
@@ -116,7 +117,7 @@ class _StatisticsState extends State<Statistics> {
                                   style: TextStyle(
                                     fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: AppColors.lightGray,
                                   ),
                                 ),
                               ],
@@ -143,7 +144,7 @@ class _StatisticsState extends State<Statistics> {
                                   '12:00',
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
-                                    color: Color(0xFFAB7F55),
+                                    color: AppColors.orange,
                                   ),
                                 ),
                                 Text(
@@ -151,7 +152,7 @@ class _StatisticsState extends State<Statistics> {
                                   style: TextStyle(
                                     fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: AppColors.lightGray,
                                   ),
                                 ),
                               ],
@@ -174,7 +175,7 @@ class _StatisticsState extends State<Statistics> {
                                   '05:20',
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
-                                    color: Color(0xFFAB7F55),
+                                    color: AppColors.orange,
                                   ),
                                 ),
                                 Text(
@@ -182,7 +183,7 @@ class _StatisticsState extends State<Statistics> {
                                   style: TextStyle(
                                     fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: AppColors.lightGray,
                                   ),
                                 ),
                               ],

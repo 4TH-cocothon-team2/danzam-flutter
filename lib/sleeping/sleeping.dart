@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:math' as math;
 import 'package:get/get.dart';
+import '../constants/colors.dart';
 import 'TipBanner.dart';
 import '../home/home_main.dart';
 
@@ -57,7 +58,7 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
           leading: IconButton(
             icon: const Icon(
               Icons.arrow_back,
-              color: Color(0xFFE7E6E3),
+              color: AppColors.lightGray,
             ),
             onPressed: () {
               Get.off(() => const HomeMain());
@@ -144,7 +145,7 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
                 style: TextStyle(
                   fontSize: MediaQuery.of(context).size.width * 0.05,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.lightGray,
                   fontFamily: 'GowunBatang',
                 ),
               ),

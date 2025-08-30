@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 
 class TipBanner extends StatelessWidget {
   const TipBanner({
@@ -45,7 +46,7 @@ class TipBanner extends StatelessWidget {
                 style: TextStyle(
                   fontSize: size.width * 0.0325,
                   height: 1.5,
-                  color: Colors.white,
+                                           color: AppColors.lightGray,
                   fontFamily: 'GowunBatang',
                   fontWeight: FontWeight.w500,
                 ),

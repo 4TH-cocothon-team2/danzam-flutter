@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
+import '../constants/colors.dart';
 import '../app_shell.dart';
 
 class IntroPage extends StatefulWidget {
@@ -38,14 +39,14 @@ class _IntroPageState extends State<IntroPage> {
             Text('단잠',
               style: TextStyle(
                 fontFamily: 'GowunBatang-Bold',
-                color: Color(0xffE7E6E3),
+                color: AppColors.lightGray,
                 fontSize: 64,
               ),
             ),
             Text('카페인 관리를 통한 수면 밸런스',
               style: TextStyle(
                 fontFamily: 'GowunBatang-Regular',
-                color: Color(0xffE7E6E3),
+                color: AppColors.lightGray,
                 fontSize: 20,
               ),
             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../constants/colors.dart';
 import '../widgets/radio_buttons.dart';
 
 enum Gender { male, female }
@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
               style: TextStyle(
                 fontFamily: 'Pretendard-Bold',
                 fontSize: 20,
-                color: Color(0xffE7E6E3),
+                color: AppColors.lightGray,
               ),
             ),
           ),
@@ -42,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
               style: TextStyle(
                 fontFamily: 'Pretendard-Bold',
                 fontSize: 20,
-                color: Color(0xffE7E6E3),
+                color: AppColors.lightGray,
               ),
             ),
           ),
@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
-                    color: Color(0xffE7E6E3),
+                    color: AppColors.lightGray,
                   ),
                 ),
               ),
@@ -93,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: TextStyle(
                       fontFamily: 'Pretendard-Bold',
                       fontSize: 16,
-                      color: Color(0xffE7E6E3),
+                      color: AppColors.lightGray,
                     ),
                   ),
                 ),
@@ -125,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
-                    color: Color(0xffE7E6E3),
+                    color: AppColors.lightGray,
                   ),
                 ),
               ),
@@ -144,15 +144,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(color: Color(0xffE7E6E3)),
+                            borderSide: BorderSide(color: AppColors.lightGray),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(color: Color(0xffE7E6E3)),
+                            borderSide: BorderSide(color: AppColors.lightGray),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(color: Color(0xffE7E6E3)),
+                            borderSide: BorderSide(color: AppColors.lightGray),
                           ),
                         ),
                       ),
@@ -162,7 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(
                         fontFamily: 'Pretendard-Regular',
                         fontSize: 12,
-                        color: Color(0xffE7E6E3),
+                        color: AppColors.lightGray,
                       ),
                     ),
                   ],
@@ -175,7 +175,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
-                    color: Color(0xffE7E6E3),
+                    color: AppColors.lightGray,
                   ),
                 ),
               ),
@@ -194,15 +194,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(color: Color(0xffE7E6E3)),
+                            borderSide: BorderSide(color: AppColors.lightGray),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(color: Color(0xffE7E6E3)),
+                            borderSide: BorderSide(color: AppColors.lightGray),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(color: Color(0xffE7E6E3)),
+                            borderSide: BorderSide(color: AppColors.lightGray),
                           ),
                         ),
                       ),
@@ -212,7 +212,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(
                         fontFamily: 'Pretendard-Regular',
                         fontSize: 12,
-                        color: Color(0xffE7E6E3),
+                        color: AppColors.lightGray,
                       ),
                     ),
                   ],
@@ -225,7 +225,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
-                    color: Color(0xffE7E6E3),
+                    color: AppColors.lightGray,
                   ),
                 ),
               ),
@@ -256,7 +256,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 16,
-                    color: Color(0xffE7E6E3),
+                    color: AppColors.lightGray,
                   ),
                 ),
               ),
@@ -291,7 +291,7 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 60,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffAD7041),
+                  backgroundColor: AppColors.orange,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),
                   ),
@@ -301,7 +301,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: TextStyle(
                     fontFamily: 'Pretendard-Bold',
                     fontSize: 20,
-                    color: Color(0xffE7E6E3),
+                    color: AppColors.lightGray,
                   ),
                 ),
               ),

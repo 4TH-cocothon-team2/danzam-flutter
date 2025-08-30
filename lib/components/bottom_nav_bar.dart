@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../constants/colors.dart';
 import '../controllers/bottom_navigation_controller.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -13,11 +14,11 @@ class BottomNavBar extends StatelessWidget {
       () => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(height: 1.0, color: Colors.white),
+          Container(height: 1.0, color: AppColors.lightGray),
           BottomNavigationBar(
             backgroundColor: const Color(0xFF333333),
-            selectedItemColor: Color(0xFFAD7041),
-            unselectedItemColor: Colors.white,
+            selectedItemColor: AppColors.orange,
+            unselectedItemColor: AppColors.lightGray,
             selectedIconTheme: IconThemeData(size: 24),
             unselectedIconTheme: IconThemeData(size: 24),
             selectedLabelStyle: TextStyle(fontSize: 12),

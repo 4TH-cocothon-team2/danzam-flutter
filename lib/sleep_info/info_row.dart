@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 
 class InfoRow extends StatelessWidget {
   final String label;
@@ -13,7 +14,7 @@ class InfoRow extends StatelessWidget {
     required this.label,
     required this.value,
     required this.unit,
-    this.valueColor = const Color(0xFFAB7F55),
+    this.valueColor = AppColors.orange,
     this.valueFontSize = 28,
     this.unitFontSize = 20,
   });
@@ -32,7 +33,7 @@ class InfoRow extends StatelessWidget {
             style: TextStyle(
               fontSize: size.width * 0.04,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+                                         color: AppColors.lightGray,
             ),
           ),
           SizedBox(height: size.height * 0.005),

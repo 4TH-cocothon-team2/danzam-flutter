@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 
 class WeeklyBarChart extends StatelessWidget {
   final List<double> values;
@@ -32,7 +33,7 @@ class WeeklyBarChart extends StatelessWidget {
                     width: size.width * 0.06,
                     height: height,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFAB7F55),
+                      color: AppColors.orange,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -41,7 +42,7 @@ class WeeklyBarChart extends StatelessWidget {
                     values[index].toInt().toString(),
                     style: TextStyle(
                       fontSize: size.width * 0.03,
-                      color: Colors.white,
+                      color: AppColors.lightGray,
                     ),
                   ),
                 ],
@@ -58,7 +59,7 @@ class WeeklyBarChart extends StatelessWidget {
               label,
               style: TextStyle(
                 fontSize: size.width * 0.03,
-                color: Colors.white,
+                color: AppColors.lightGray,
               ),
             ),
           ).toList(),

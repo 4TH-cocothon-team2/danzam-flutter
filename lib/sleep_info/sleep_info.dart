@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 import 'sleep_summary_card.dart';
 import 'info_row.dart';
 
@@ -24,7 +25,7 @@ class _SleepInfoState extends State<SleepInfo> {
         fontFamily: 'Pretendard',
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
-          foregroundColor: Colors.white,
+          foregroundColor: AppColors.lightGray,
         ),
       ),
       home: Scaffold(
@@ -75,7 +76,7 @@ class _SleepInfoState extends State<SleepInfo> {
                                   style: TextStyle(
                                     fontSize: size.width * 0.04,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: AppColors.lightGray,
                                   ),
                                 ),
                                 Row(
@@ -85,7 +86,7 @@ class _SleepInfoState extends State<SleepInfo> {
                                       style: TextStyle(
                                         fontSize: size.width * 0.09,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                        color: AppColors.lightGray,
                                       ),
                                     ),
                                     const SizedBox(width: 4),
@@ -93,7 +94,7 @@ class _SleepInfoState extends State<SleepInfo> {
                                       'A.M.',
                                       style: TextStyle(
                                         fontSize: size.width * 0.035,
-                                        color: Colors.white,
+                                        color: AppColors.lightGray,
                                       ),
                                     ),
                                   ],
@@ -111,7 +112,7 @@ class _SleepInfoState extends State<SleepInfo> {
                                   style: TextStyle(
                                     fontSize: size.width * 0.04,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: AppColors.lightGray,
                                   ),
                                 ),
                                 Row(
@@ -121,7 +122,7 @@ class _SleepInfoState extends State<SleepInfo> {
                                       style: TextStyle(
                                         fontSize: size.width * 0.09,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                        color: AppColors.lightGray,
                                       ),
                                     ),
                                     const SizedBox(width: 4),
@@ -129,7 +130,7 @@ class _SleepInfoState extends State<SleepInfo> {
                                       'A.M.',
                                       style: TextStyle(
                                         fontSize: size.width * 0.035,
-                                        color: Colors.white,
+                                        color: AppColors.lightGray,
                                       ),
                                     ),
                                   ],
@@ -170,7 +171,7 @@ class _SleepInfoState extends State<SleepInfo> {
                       style: TextStyle(
                         fontSize: size.width * 0.045,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.lightGray,
                       ),
                     ),
                   ),
@@ -188,13 +189,13 @@ class _SleepInfoState extends State<SleepInfo> {
                     children: [
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                          activeTrackColor: const Color(0xFFAB7F55),
+                          activeTrackColor: AppColors.orange,
                           inactiveTrackColor: const Color(0xFF444448),
-                          thumbColor: const Color(0xFFAB7F55),
-                          overlayColor: const Color(0xFFAB7F55).withOpacity(0.2),
-                          valueIndicatorColor: const Color(0xFFAB7F55),
+                                                      thumbColor: AppColors.orange,
+                                                      overlayColor: AppColors.orange.withOpacity(0.2),
+                                                      valueIndicatorColor: AppColors.orange,
                           valueIndicatorTextStyle: const TextStyle(
-                            color: Color(0xFFE7E6E3),
+                            color: AppColors.lightGray,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
@@ -225,7 +226,7 @@ class _SleepInfoState extends State<SleepInfo> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFD98D4B),
-                      foregroundColor: Colors.white,
+                      foregroundColor: AppColors.lightGray,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13),
                       ),
@@ -236,7 +237,7 @@ class _SleepInfoState extends State<SleepInfo> {
                       style: TextStyle(
                         fontSize: size.width * 0.045,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.lightGray,
                       ),
                     ),
                   ),

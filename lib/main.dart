@@ -3,6 +3,7 @@ import 'init_controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'constants/colors.dart';
 import 'app_shell.dart';
 import 'init_controllers.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialBinding: NavigationBinding(),
-      color: Color(0xFFFFFFFF),
+      color: AppColors.lightGray,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

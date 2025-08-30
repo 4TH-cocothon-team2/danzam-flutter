@@ -1,6 +1,7 @@
 import 'helper/drink_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../constants/colors.dart';
 
 class HomeEdit extends StatefulWidget {
   final CaffeineItem item;
@@ -126,7 +127,7 @@ class _HomeEditState extends State<HomeEdit> {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(size.width * 0.03),
-                        color: const Color(0xFFD98D4B),
+                        color: AppColors.orange,
                       ),
                       child: Text(
                         '수정',
@@ -200,22 +201,22 @@ class _HomeEditState extends State<HomeEdit> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
-                  borderSide: const BorderSide(color: Color(0xFFD98D4B)),
+                  borderSide: const BorderSide(color: AppColors.orange),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
-                  borderSide: const BorderSide(color: Color(0xFFD98D4B)),
+                  borderSide: const BorderSide(color: AppColors.orange),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
                   borderSide: const BorderSide(
-                    color: Color(0xFFD98D4B),
+                    color: AppColors.orange,
                     width: 2,
                   ),
                 ),
                 disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(size.width * 0.02),
-                  borderSide: const BorderSide(color: Color(0xFFD98D4B)),
+                  borderSide: const BorderSide(color: AppColors.orange),
                 ),
                 suffixIcon:
                     (label == '개수' || label == '용량' || label == '카페인 함유량')
@@ -305,7 +306,7 @@ class _HomeEditState extends State<HomeEdit> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(size.width * 0.025),
-                  border: Border.all(color: const Color(0xFFD98D4B)),
+                  border: Border.all(color: AppColors.orange),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -322,7 +323,7 @@ class _HomeEditState extends State<HomeEdit> {
                     Icon(
                       Icons.calendar_month,
                       size: size.width * 0.045,
-                      color: Color(0xFFD98D4B),
+                      color: AppColors.orange,
                     ),
                   ],
                 ),
