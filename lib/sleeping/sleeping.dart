@@ -59,7 +59,7 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: AppColors.lightGray),
             onPressed: () {
-              Get.off(() => const HomeMain());
+              Navigator.of(context).pop();
             },
           ),
         ),
