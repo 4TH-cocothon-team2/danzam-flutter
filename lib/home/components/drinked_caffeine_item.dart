@@ -1,4 +1,4 @@
-import 'package:cokothon25/home/helper/drink_item.dart';
+import '../helper/drink_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../home_edit.dart';

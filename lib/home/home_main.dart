@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'components/drinked_caffeine_item.dart';
 import 'home_add.dart';
 import '../controllers/homepage_controller.dart';
+import '../sleeping/sleeping.dart';
 
 class HomeMain extends StatefulWidget {
   const HomeMain({super.key});
@@ -228,9 +229,24 @@ class _HomeMainState extends State<HomeMain> {
                     height: size.height * 0.07,
                     child: GestureDetector(
                       onTap: () {
-                        ScaffoldMessenger.of(
-                          context,
-                        ).showSnackBar(SnackBar(content: Text('저장되었습니다')));
+                        // 현재 시간과 예상 수면시간 비교 (한국 시간 기준)
+                        final now = DateTime.now().toUtc().add(
+                          const Duration(hours: 9),
+                        );
+                        final currentTime =
+                            '${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}';
+
+                        // 예상 수면시간이 현재 시간보다 이전이면 Sleeping 화면으로 이동
+                        if (_isTimeAfter(
+                          currentTime,
+                          controller.expectedSleepTime.value,
+                        )) {
+                          Get.to(() => const Sleeping());
+                        } else {
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text('저장되었습니다')));
+                        }
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -259,6 +275,22 @@ class _HomeMainState extends State<HomeMain> {
         ),
       );
     });
+  }
+
+  // 시간 비교 메서드
+  bool _isTimeAfter(String time1, String time2) {
+    final parts1 = time1.split(':');
+    final parts2 = time2.split(':');
+
+    final hour1 = int.parse(parts1[0]);
+    final minute1 = int.parse(parts1[1]);
+    final hour2 = int.parse(parts2[0]);
+    final minute2 = int.parse(parts2[1]);
+
+    final totalMinutes1 = hour1 * 60 + minute1;
+    final totalMinutes2 = hour2 * 60 + minute2;
+
+    return totalMinutes1 > totalMinutes2;
   }
 
   // 예상 수면 시간 박스
