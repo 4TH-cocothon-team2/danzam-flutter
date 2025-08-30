@@ -96,13 +96,10 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xff333333),
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
                   SizedBox(height: 60),
                   Padding(
                     padding: const EdgeInsets.only(left: 50),
@@ -406,80 +403,73 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 80),
+                  Center(
+                    child: SizedBox(
+                      width: 380,
+                      height: 60,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xffAD7041),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(13),
+                          ),
+                        ),
+                        onPressed: () async {
+                          final ageText = _ageController.text.trim();
+                          final weightText = _weightController.text.trim();
+
+                          if (ageText.isEmpty || weightText.isEmpty) {
+                            Get.snackbar('입력 오류', '나이와 몸무게를 모두 입력해주세요.');
+                            return;
+                          }
+
+                          final age = int.tryParse(ageText);
+                          final weight = double.tryParse(weightText);
+
+                          if (age == null || weight == null) {
+                            Get.snackbar('입력 오류', '숫자 형식으로 입력해주세요.');
+                            return;
+                          }
+
+                          // TODO: 여기에 저장 처리 로직 추가
+                          final userData = {
+                            'gender': _gender?.index,
+                            'pregnancy': _pregnancy,
+                            'age': age,
+                            'weight': weight,
+                            'smoking': _smoking,
+                            'drug': _drug,
+                          };
+                          // final data = await editUserData(userData);
+
+                          // 로컬 저장소에 append
+                          final prefs = await SharedPreferences.getInstance();
+                          await prefs.setInt('age', age);
+                          await prefs.setDouble('weight', weight);
+                          await prefs.setBool('isSmoker', _smoking ?? false);
+                          await prefs.setBool('isPregnant', _pregnancy ?? false);
+                          await prefs.setBool('isDrug', _drug ?? false);
+                          await prefs.setInt(
+                            'gender',
+                            _gender?.index ?? 0,
+                          ); // 0: male, 1: female
+                        },
+                        child: Text(
+                          '정보 수정',
+                          style: TextStyle(
+                            fontFamily: 'Pretendard-Bold',
+                            fontSize: 20,
+                            color: Color(0xffE7E6E3),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
                 ],
               ),
             ),
-          ),
-          Positioned(
-            bottom: 15,
-            left: 0,
-            right: 0,
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: 380,
-                height: 60,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffAD7041),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                  ),
-                  onPressed: () async {
-                    final ageText = _ageController.text.trim();
-                    final weightText = _weightController.text.trim();
-
-                    if (ageText.isEmpty || weightText.isEmpty) {
-                      Get.snackbar('입력 오류', '나이와 몸무게를 모두 입력해주세요.');
-                      return;
-                    }
-
-                    final age = int.tryParse(ageText);
-                    final weight = double.tryParse(weightText);
-
-                    if (age == null || weight == null) {
-                      Get.snackbar('입력 오류', '숫자 형식으로 입력해주세요.');
-                      return;
-                    }
-
-                    // TODO: 여기에 저장 처리 로직 추가
-                    final userData = {
-                      'gender': _gender?.index,
-                      'pregnancy': _pregnancy,
-                      'age': age,
-                      'weight': weight,
-                      'smoking': _smoking,
-                      'drug': _drug,
-                    };
-                    // final data = await editUserData(userData);
-
-                    // 로컬 저장소에 append
-                    final prefs = await SharedPreferences.getInstance();
-                    await prefs.setInt('age', age);
-                    await prefs.setDouble('weight', weight);
-                    await prefs.setBool('isSmoker', _smoking ?? false);
-                    await prefs.setBool('isPregnant', _pregnancy ?? false);
-                    await prefs.setBool('isDrug', _drug ?? false);
-                    await prefs.setInt(
-                      'gender',
-                      _gender?.index ?? 0,
-                    ); // 0: male, 1: female
-                  },
-                  child: Text(
-                    '정보 수정',
-                    style: TextStyle(
-                      fontFamily: 'Pretendard-Bold',
-                      fontSize: 20,
-                      color: Color(0xffE7E6E3),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

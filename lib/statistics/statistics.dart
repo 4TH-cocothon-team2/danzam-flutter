@@ -32,10 +32,7 @@ class _StatisticsState extends State<Statistics> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Pretendard'),
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: const Color(0xFF333333),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -211,7 +208,6 @@ class _StatisticsState extends State<Statistics> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

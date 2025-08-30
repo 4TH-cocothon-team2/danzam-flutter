@@ -29,9 +29,10 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xff333333),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
           SizedBox(height: 60),
           Padding(
             padding: const EdgeInsets.only(left: 50),
@@ -374,6 +375,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
         ],
+        ),
       ),
     );
   }

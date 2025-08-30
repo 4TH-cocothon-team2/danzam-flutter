@@ -1,7 +1,5 @@
-import 'package:Danzam/screens/settings_page.dart';
-import 'package:Danzam/statistics/statistics.dart';
-
-import 'statistic_page.dart';
+import 'screens/settings_page.dart';
+import 'statistics/statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
