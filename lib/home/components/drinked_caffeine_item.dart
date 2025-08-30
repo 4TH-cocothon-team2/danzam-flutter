@@ -23,7 +23,7 @@ class DrinkedCaffeineItem extends StatelessWidget {
           horizontal: size.width * 0.04,
         ),
         decoration: BoxDecoration(
-          color: Color(0xFF1C1C1E),
+          color: AppColors.cardBackground,
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(

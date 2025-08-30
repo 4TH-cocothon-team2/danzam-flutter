@@ -24,7 +24,7 @@ class _HomeMainState extends State<HomeMain> {
 
     return Obx(() {
       return Scaffold(
-        backgroundColor: Color(0xFF333333),
+        backgroundColor: AppColors.darkGray,
         body: Stack(
           children: [
             Padding(
@@ -125,7 +125,7 @@ class _HomeMainState extends State<HomeMain> {
                         horizontal: size.width * 0.04,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(0xFF1C1C1E),
+                        color: AppColors.cardBackground,
                         borderRadius: BorderRadius.circular(13),
                         boxShadow: [
                           BoxShadow(
@@ -186,7 +186,7 @@ class _HomeMainState extends State<HomeMain> {
                         horizontal: size.width * 0.04,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(0xFF1C1C1E),
+                        color: AppColors.cardBackground,
                         borderRadius: BorderRadius.circular(13),
                         boxShadow: [
                           BoxShadow(

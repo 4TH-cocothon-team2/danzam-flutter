@@ -28,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xff333333),
+      backgroundColor: AppColors.darkGray,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,9 +152,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         controller: _ageController,
                         style: TextStyle(
                           fontFamily: 'Pretendard-Regular',
-                          color: Color(0xff908F8B),
+                          color: AppColors.mediumGray,
                         ),
-                        cursorColor: Color(0xff908F8B),
+                        cursorColor: AppColors.mediumGray,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),
@@ -205,9 +205,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         controller: _weightController,
                         style: TextStyle(
                           fontFamily: 'Pretendard-Regular',
-                          color: Color(0xff908F8B),
+                          color: AppColors.mediumGray,
                         ),
-                        cursorColor: Color(0xff908F8B),
+                        cursorColor: AppColors.mediumGray,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(13),

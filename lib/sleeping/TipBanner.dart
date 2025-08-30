@@ -6,8 +6,8 @@ class TipBanner extends StatelessWidget {
     super.key,
     this.text = '커피를 안마셨으면 이미 잠들었을겁니다...',
     this.icon = Icons.lightbulb_outline,
-    this.bg = const Color(0xFF333333),
-    this.stroke = const Color(0xFFC8864F), // 주황동 느낌
+    this.bg = AppColors.darkGray,
+    this.stroke = AppColors.orange, // 주황동 느낌
   });
 
   final String text;

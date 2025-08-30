@@ -52,7 +52,7 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color(0xFF333333),
+        backgroundColor: AppColors.darkGray,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           scrolledUnderElevation: 0,
@@ -74,7 +74,7 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
                   height: 200,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: const Color(0xFFB3ABA3),
+                    color: AppColors.circleBlur,
                   ),
                 ),
               ),

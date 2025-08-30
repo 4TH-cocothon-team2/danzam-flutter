@@ -16,7 +16,7 @@ class BottomNavBar extends StatelessWidget {
         children: [
           Container(height: 1.0, color: AppColors.lightGray),
           BottomNavigationBar(
-            backgroundColor: const Color(0xFF333333),
+            backgroundColor: AppColors.darkGray,
             selectedItemColor: AppColors.orange,
             unselectedItemColor: AppColors.lightGray,
             selectedIconTheme: IconThemeData(size: 24),

@@ -10,6 +10,5 @@ class AppColors {
   // 추가 색상들 (기존 코드에서 사용되는 색상들)
   static const Color cardBackground = Color(0xFF1C1C1E);
   static const Color separator = Color(0xFF444448);
-  static const Color caffeineValue = Color(0xFFAB7F55);
-  static const Color buttonOrange = Color(0xFFD98D4B);
+  static const Color circleBlur = Color(0xFFB3ABA3);
 }

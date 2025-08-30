@@ -19,7 +19,7 @@ class SleepSummaryCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xFF1C1C1E),
+                         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(13),
         boxShadow: [
           BoxShadow(
@@ -52,7 +52,7 @@ class SleepSummaryCard extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 1,
-              color: const Color(0xFF444448),
+                                 color: AppColors.separator,
             ),
             ...children,
           ],

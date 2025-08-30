@@ -29,7 +29,7 @@ class _SleepInfoState extends State<SleepInfo> {
         ),
       ),
       home: Scaffold(
-        backgroundColor: const Color(0xFF333333),
+        backgroundColor: AppColors.darkGray,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           scrolledUnderElevation: 0,
@@ -180,7 +180,7 @@ class _SleepInfoState extends State<SleepInfo> {
                 Container(
                   width: double.infinity,
                   height: 1,
-                  color: const Color(0xFF444448),
+                  color: AppColors.separator,
                 ),
                 const SizedBox(height: 10),
                 Padding(
@@ -190,7 +190,7 @@ class _SleepInfoState extends State<SleepInfo> {
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
                           activeTrackColor: AppColors.orange,
-                          inactiveTrackColor: const Color(0xFF444448),
+                          inactiveTrackColor: AppColors.separator,
                                                       thumbColor: AppColors.orange,
                                                       overlayColor: AppColors.orange.withOpacity(0.2),
                                                       valueIndicatorColor: AppColors.orange,
@@ -225,7 +225,7 @@ class _SleepInfoState extends State<SleepInfo> {
                       // 완료 버튼 동작
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFD98D4B),
+                      backgroundColor: AppColors.orange,
                       foregroundColor: AppColors.lightGray,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13),

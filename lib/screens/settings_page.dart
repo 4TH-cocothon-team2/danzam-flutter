@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../constants/colors.dart';
 import '../widgets/radio_buttons.dart';
 
 enum Gender { male, female }
@@ -95,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xff333333),
+      backgroundColor: AppColors.darkGray,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +109,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       style: TextStyle(
                         fontFamily: 'Pretendard-Bold',
                         fontSize: 20,
-                        color: Color(0xffE7E6E3),
+                        color: AppColors.lightGray,
                       ),
                     ),
                   ),
@@ -119,7 +120,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       style: TextStyle(
                         fontFamily: 'Pretendard-Bold',
                         fontSize: 20,
-                        color: Color(0xffE7E6E3),
+                        color: AppColors.lightGray,
                       ),
                     ),
                   ),
@@ -136,7 +137,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: TextStyle(
                             fontFamily: 'Pretendard-Bold',
                             fontSize: 16,
-                            color: Color(0xffE7E6E3),
+                            color: AppColors.lightGray,
                           ),
                         ),
                       ),
@@ -176,7 +177,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             style: TextStyle(
                               fontFamily: 'Pretendard-Bold',
                               fontSize: 16,
-                              color: Color(0xffE7E6E3),
+                              color: AppColors.lightGray,
                             ),
                           ),
                         ),
@@ -215,7 +216,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: TextStyle(
                             fontFamily: 'Pretendard-Bold',
                             fontSize: 16,
-                            color: Color(0xffE7E6E3),
+                            color: AppColors.lightGray,
                           ),
                         ),
                       ),
@@ -229,26 +230,26 @@ class _SettingsPageState extends State<SettingsPage> {
                                 controller: _ageController,
                                 style: TextStyle(
                                   fontFamily: 'Pretendard-Regular',
-                                  color: Color(0xff908F8B),
+                                  color: AppColors.mediumGray,
                                 ),
-                                cursorColor: Color(0xff908F8B),
+                                cursorColor: AppColors.mediumGray,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(13),
                                     borderSide: BorderSide(
-                                      color: Color(0xffE7E6E3),
+                                      color: AppColors.lightGray,
                                     ),
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(13),
                                     borderSide: BorderSide(
-                                      color: Color(0xffE7E6E3),
+                                      color: AppColors.lightGray,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(13),
                                     borderSide: BorderSide(
-                                      color: Color(0xffE7E6E3),
+                                      color: AppColors.lightGray,
                                     ),
                                   ),
                                 ),
@@ -260,7 +261,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               style: TextStyle(
                                 fontFamily: 'Pretendard-Regular',
                                 fontSize: 12,
-                                color: Color(0xffE7E6E3),
+                                color: AppColors.lightGray,
                               ),
                             ),
                           ],
@@ -278,7 +279,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: TextStyle(
                             fontFamily: 'Pretendard-Bold',
                             fontSize: 16,
-                            color: Color(0xffE7E6E3),
+                            color: AppColors.lightGray,
                           ),
                         ),
                       ),
@@ -292,26 +293,26 @@ class _SettingsPageState extends State<SettingsPage> {
                                 controller: _weightController,
                                 style: TextStyle(
                                   fontFamily: 'Pretendard-Regular',
-                                  color: Color(0xff908F8B),
+                                  color: AppColors.mediumGray,
                                 ),
-                                cursorColor: Color(0xff908F8B),
+                                cursorColor: AppColors.mediumGray,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(13),
                                     borderSide: BorderSide(
-                                      color: Color(0xffE7E6E3),
+                                      color: AppColors.lightGray,
                                     ),
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(13),
                                     borderSide: BorderSide(
-                                      color: Color(0xffE7E6E3),
+                                      color: AppColors.lightGray,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(13),
                                     borderSide: BorderSide(
-                                      color: Color(0xffE7E6E3),
+                                      color: AppColors.lightGray,
                                     ),
                                   ),
                                 ),
@@ -323,7 +324,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               style: TextStyle(
                                 fontFamily: 'Pretendard-Regular',
                                 fontSize: 12,
-                                color: Color(0xffE7E6E3),
+                                color: AppColors.lightGray,
                               ),
                             ),
                           ],
@@ -341,7 +342,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: TextStyle(
                             fontFamily: 'Pretendard-Bold',
                             fontSize: 16,
-                            color: Color(0xffE7E6E3),
+                            color: AppColors.lightGray,
                           ),
                         ),
                       ),
@@ -377,7 +378,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: TextStyle(
                             fontFamily: 'Pretendard-Bold',
                             fontSize: 16,
-                            color: Color(0xffE7E6E3),
+                            color: AppColors.lightGray,
                           ),
                         ),
                       ),
@@ -410,7 +411,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       height: 60,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffAD7041),
+                          backgroundColor: AppColors.orange,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(13),
                           ),
@@ -460,7 +461,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: TextStyle(
                             fontFamily: 'Pretendard-Bold',
                             fontSize: 20,
-                            color: Color(0xffE7E6E3),
+                            color: AppColors.lightGray,
                           ),
                         ),
                       ),

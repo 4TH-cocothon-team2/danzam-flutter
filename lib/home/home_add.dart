@@ -20,7 +20,7 @@ class _HomeAddState extends State<HomeAdd> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF333333),
+      backgroundColor: AppColors.darkGray,
       appBar: null,
       body: Padding(
         padding: EdgeInsets.symmetric(

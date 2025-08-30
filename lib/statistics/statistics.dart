@@ -33,7 +33,7 @@ class _StatisticsState extends State<Statistics> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: const Color(0xFF333333),
+        backgroundColor: AppColors.darkGray,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           scrolledUnderElevation: 0,

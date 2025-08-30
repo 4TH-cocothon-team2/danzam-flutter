@@ -40,7 +40,7 @@ class _HomeEditState extends State<HomeEdit> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF333333),
+      backgroundColor: AppColors.darkGray,
       appBar: null,
       body: Padding(
         padding: EdgeInsets.symmetric(
