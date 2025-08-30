@@ -18,6 +18,7 @@ class _HomeAddState extends State<HomeAdd> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFF333333),
       appBar: null,
       body: Padding(
@@ -60,6 +61,7 @@ class _HomeAddState extends State<HomeAdd> {
               controller: _caffeineController,
               context: context,
             ),
+            SizedBox(height: size.height * 0.01),
             _buildTimePickerRow('섭취 시간', size),
             const Spacer(),
             Row(
@@ -319,15 +321,53 @@ class _HomeAddState extends State<HomeAdd> {
   Future<DateTime?> showDateTimePicker() async {
     final date = await showDatePicker(
       context: context,
+      locale: const Locale('ko', 'KR'),
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
+      builder: (context, child) {
+        return Localizations.override(
+          context: context,
+          locale: const Locale('ko', 'KR'),
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: Color(0xFFD98D4B), // header background
+                onPrimary: Colors.white, // header text color
+                onSurface: Colors.black, // body text color
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  foregroundColor: Color(0xFFD98D4B), // button text color
+                ),
+              ),
+            ),
+            child: child!,
+          ),
+        );
+      },
     );
     if (date == null) return null;
 
     final time = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
+      builder: (context, child) {
+        return Localizations.override(
+          context: context,
+          locale: const Locale('ko', 'KR'),
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: Color(0xFFD98D4B), // clock dial
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+            ),
+            child: child!,
+          ),
+        );
+      },
     );
     if (time == null) return null;
 

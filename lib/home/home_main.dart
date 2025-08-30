@@ -52,12 +52,7 @@ class _HomeMainState extends State<HomeMain> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeAdd(),
-                              ),
-                            );
+                            Get.to(() => HomeAdd());
                           },
                           style: ElevatedButton.styleFrom(
                             fixedSize: Size(
@@ -79,10 +74,17 @@ class _HomeMainState extends State<HomeMain> {
                             children: [
                               Text(
                                 '추가하기',
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: size.width * 0.0325,
+                                ),
                               ),
-                              SizedBox(width: 5),
-                              Icon(Icons.arrow_forward, color: Colors.white),
+                              SizedBox(width: size.width * 0.01),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: size.width * 0.045,
+                              ),
                             ],
                           ),
                         ),

@@ -38,6 +38,7 @@ class _HomeEditState extends State<HomeEdit> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFF333333),
       appBar: null,
       body: Padding(
@@ -80,6 +81,7 @@ class _HomeEditState extends State<HomeEdit> {
               controller: _caffeineController,
               context: context,
             ),
+            SizedBox(height: size.height * 0.01),
             _buildTimePickerRow('섭취 시간', size),
             const Spacer(),
             Row(
