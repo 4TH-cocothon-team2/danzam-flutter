@@ -20,21 +20,22 @@ class InfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.045),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             label,
-            style: const TextStyle(
-              fontSize: 16,
+            style: TextStyle(
+              fontSize: size.width * 0.04,
               fontWeight: FontWeight.bold,
-              color: Color(0xFFE7E6E3),
+              color: Colors.white,
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: size.height * 0.005),
           Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
@@ -42,15 +43,15 @@ class InfoRow extends StatelessWidget {
               Text(
                 value,
                 style: TextStyle(
-                  fontSize: valueFontSize,
+                  fontSize: valueFontSize * (size.width / 400), // 반응형 크기 조정
                   color: valueColor,
                 ),
               ),
-              const SizedBox(width: 4),
+              SizedBox(width: size.width * 0.01),
               Text(
                 unit,
                 style: TextStyle(
-                  fontSize: unitFontSize,
+                  fontSize: unitFontSize * (size.width / 400), // 반응형 크기 조정
                   fontWeight: FontWeight.bold,
                   color: valueColor,
                 ),

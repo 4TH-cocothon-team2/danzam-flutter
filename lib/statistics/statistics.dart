@@ -30,6 +30,7 @@ class _StatisticsState extends State<Statistics> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Pretendard',
@@ -39,21 +40,24 @@ class _StatisticsState extends State<Statistics> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           scrolledUnderElevation: 0,
-          title: const Align(
+          title: Align(
             alignment: Alignment.centerLeft,
             child: Text(
               '나의 통계',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Color(0xFFE7E6E3),
+                fontSize: size.width * 0.05,
+                color: Colors.white,
               ),
             ),
           ),
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(
+              vertical: size.height * 0.07,
+              horizontal: size.width * 0.045,
+            ),
             child: Column(
               children: [
                 const SizedBox(height: 20),
@@ -66,22 +70,22 @@ class _StatisticsState extends State<Statistics> {
                         titleFontSize: 14,
                         children: [
                           const SizedBox(height: 10),
-                          const Center(
+                          Center(
                             child: Column(
                               children: [
                                 Text(
                                   '210',
                                   style: TextStyle(
-                                    fontSize: 28,
+                                    fontSize: size.width * 0.07,
                                     color: Color(0xFFAB7F55),
                                   ),
                                 ),
                                 Text(
                                   'mg',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFE7E6E3),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
@@ -97,22 +101,22 @@ class _StatisticsState extends State<Statistics> {
                         titleFontSize: 14,
                         children: [
                           const SizedBox(height: 10),
-                          const Center(
+                          Center(
                             child: Column(
                               children: [
                                 Text(
                                   '01:00',
                                   style: TextStyle(
-                                    fontSize: 28,
+                                    fontSize: size.width * 0.07,
                                     color: Color(0xFFAB7F55),
                                   ),
                                 ),
                                 Text(
                                   'A.M.',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFE7E6E3),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
@@ -132,22 +136,22 @@ class _StatisticsState extends State<Statistics> {
                         titleFontSize: 14,
                         children: [
                           const SizedBox(height: 10),
-                          const Center(
+                          Center(
                             child: Column(
                               children: [
                                 Text(
                                   '12:00',
                                   style: TextStyle(
-                                    fontSize: 28,
+                                    fontSize: size.width * 0.07,
                                     color: Color(0xFFAB7F55),
                                   ),
                                 ),
                                 Text(
                                   'A.M.',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFE7E6E3),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
@@ -163,22 +167,22 @@ class _StatisticsState extends State<Statistics> {
                         titleFontSize: 14,
                         children: [
                           const SizedBox(height: 10),
-                          const Center(
+                          Center(
                             child: Column(
                               children: [
                                 Text(
                                   '05:20',
                                   style: TextStyle(
-                                    fontSize: 28,
+                                    fontSize: size.width * 0.07,
                                     color: Color(0xFFAB7F55),
                                   ),
                                 ),
                                 Text(
                                   'P.M.',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFE7E6E3),
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],

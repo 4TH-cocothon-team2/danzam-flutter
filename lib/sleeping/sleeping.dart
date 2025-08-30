@@ -49,6 +49,19 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFF333333),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          scrolledUnderElevation: 0,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Color(0xFFE7E6E3),
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
         body: Stack(
           children: [
             // 동그라미를 화면 중앙에 배치
@@ -123,13 +136,13 @@ class _SleepingState extends State<Sleeping> with TickerProviderStateMixin {
               top: MediaQuery.of(context).size.height * 0.1,
               left: 0,
               right: 0,
-              child: const Text(
+              child: Text(
                 '이제 잠들 시간입니다..\n단잠에 빠져보세요',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFFE7E6E3),
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                   fontFamily: 'GowunBatang',
                 ),
               ),

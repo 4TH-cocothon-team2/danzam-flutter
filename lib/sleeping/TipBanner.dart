@@ -16,30 +16,36 @@ class TipBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return ConstrainedBox(
       constraints: BoxConstraints(
-        maxWidth: MediaQuery.of(context).size.width * 0.8,
-        maxHeight: 80,
+        maxWidth: size.width * 0.8,
+        maxHeight: size.height * 0.07,
       ),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           // 본체(라운드 보더)
           Container(
-            padding: const EdgeInsets.fromLTRB(24, 28, 24, 24), // 상단 아이콘 공간 확보
+            padding: EdgeInsets.fromLTRB(
+              size.width * 0.04, 
+              size.height * 0.02, 
+              size.width * 0.04, 
+              size.height * 0.02
+            ),
             decoration: BoxDecoration(
               color: bg,
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(13),
               border: Border.all(color: stroke, width: 1),
             ),
             child: Center(
               child: Text(
                 text,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: size.width * 0.0325,
                   height: 1.5,
-                  color: Color(0xFFE7E6E3),
+                  color: Colors.white,
                   fontFamily: 'GowunBatang',
                   fontWeight: FontWeight.w500,
                 ),
@@ -54,7 +60,7 @@ class TipBanner extends StatelessWidget {
             right: 0,
             child: Center(
               child: Container(
-                width: 80,
+                width: size.width * 0.2,
                 height: 3,
                 color: bg,
               ),
@@ -63,14 +69,14 @@ class TipBanner extends StatelessWidget {
 
           // 상단 중앙 아이콘(보더 위에 살짝 겹치게)
           Positioned(
-            top: -18,
+            top: -size.width * 0.045,
             left: 0,
             right: 0,
             child: Center(
               child: Image.asset(
                 'assets/images/tabler_bulb.png',
-                width: 36,
-                height: 36,
+                width: size.width * 0.09,
+                height: size.width * 0.09,
                 color: stroke,
               ),
             ),

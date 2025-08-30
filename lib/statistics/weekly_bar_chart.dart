@@ -12,35 +12,36 @@ class WeeklyBarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final maxValue = values.reduce((a, b) => a > b ? a : b);
     
     return Column(
       children: [
         // 막대 그래프
         SizedBox(
-          height: 120,
+          height: size.height * 0.18,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: List.generate(values.length, (index) {
-              final height = (values[index] / maxValue) * 95;
+              final height = (values[index] / maxValue) * (size.height * 0.12);
               return Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    width: 25,
+                    width: size.width * 0.06,
                     height: height,
                     decoration: BoxDecoration(
                       color: const Color(0xFFAB7F55),
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: size.height * 0.01),
                   Text(
                     values[index].toInt().toString(),
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Color(0xFFE7E6E3),
+                    style: TextStyle(
+                      fontSize: size.width * 0.03,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -48,16 +49,16 @@ class WeeklyBarChart extends StatelessWidget {
             }),
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: size.height * 0.01),
         // 날짜 라벨
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: labels.map((label) => 
             Text(
               label,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Color(0xFFE7E6E3),
+              style: TextStyle(
+                fontSize: size.width * 0.03,
+                color: Colors.white,
               ),
             ),
           ).toList(),

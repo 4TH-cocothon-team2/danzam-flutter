@@ -18,223 +18,232 @@ class _SleepInfoState extends State<SleepInfo> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Pretendard',
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
-          foregroundColor: Color(0xFFE7E6E3),
+          foregroundColor: Colors.white,
         ),
       ),
       home: Scaffold(
         backgroundColor: const Color(0xFF333333),
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          scrolledUnderElevation: 0,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
-          title: const Align(
+          title: Align(
             alignment: Alignment.centerLeft,
             child: Text(
               '수면 요약',
               style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontSize: size.width * 0.05,
               ),
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              SleepSummaryCard(
-                title: '수면 요약',
-                children: [
-                  const SizedBox(height: 15),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Text(
-                                '시작',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFFE7E6E3),
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    '12:00',
-                                    style: TextStyle(
-                                      fontSize: 36,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFFE7E6E3),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 4),
-                                  const Text(
-                                    'A.M.',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Color(0xFFE7E6E3),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Text(
-                                '종료',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFFE7E6E3),
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    '07:00',
-                                    style: TextStyle(
-                                      fontSize: 36,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFFE7E6E3),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 4),
-                                  const Text(
-                                    'A.M.',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Color(0xFFE7E6E3),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  const InfoRow(
-                    label: '총 카페인 섭취량',
-                    value: '200',
-                    unit: 'mg',
-                  ),
-                  const SizedBox(height: 15),
-                  const InfoRow(
-                    label: '최초 음용시각',
-                    value: '05:20',
-                    unit: 'P.M.',
-                  ),
-                  const SizedBox(height: 15),
-                  const InfoRow(
-                    label: '수면 전 잔존량',
-                    value: '58',
-                    unit: 'mg',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 15),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: const Text(
-                    '수면 품질 평가',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFE7E6E3),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Container(
-                width: double.infinity,
-                height: 1,
-                color: const Color(0xFF444448),
-              ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: size.height * 0.07,
+              horizontal: size.width * 0.045,
+            ),
+            child: Column(
+              children: [
+                SleepSummaryCard(
+                  title: '수면 요약',
                   children: [
-                    SliderTheme(
-                      data: SliderTheme.of(context).copyWith(
-                        activeTrackColor: const Color(0xFFAB7F55),
-                        inactiveTrackColor: const Color(0xFF444448),
-                        thumbColor: const Color(0xFFAB7F55),
-                        overlayColor: const Color(0xFFAB7F55).withOpacity(0.2),
-                        valueIndicatorColor: const Color(0xFFAB7F55),
-                        valueIndicatorTextStyle: const TextStyle(
-                          color: Color(0xFFE7E6E3),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    const SizedBox(height: 15),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '시작',
+                                  style: TextStyle(
+                                    fontSize: size.width * 0.04,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      '12:00',
+                                      style: TextStyle(
+                                        fontSize: size.width * 0.09,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      'A.M.',
+                                      style: TextStyle(
+                                        fontSize: size.width * 0.035,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '종료',
+                                  style: TextStyle(
+                                    fontSize: size.width * 0.04,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      '07:00',
+                                      style: TextStyle(
+                                        fontSize: size.width * 0.09,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      'A.M.',
+                                      style: TextStyle(
+                                        fontSize: size.width * 0.035,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      child: Slider(
-                        value: _sliderValue,
-                        min: 1.0,
-                        max: 10.0,
-                        divisions: 9,
-                        label: _sliderValue.round().toString(),
-                        onChanged: (value) {
-                          setState(() {
-                            _sliderValue = value;
-                          });
-                        },
-                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    const InfoRow(
+                      label: '총 카페인 섭취량',
+                      value: '200',
+                      unit: 'mg',
+                    ),
+                    const SizedBox(height: 15),
+                    const InfoRow(
+                      label: '최초 음용시각',
+                      value: '05:20',
+                      unit: 'P.M.',
+                    ),
+                    const SizedBox(height: 15),
+                    const InfoRow(
+                      label: '수면 전 잔존량',
+                      value: '58',
+                      unit: 'mg',
                     ),
                   ],
                 ),
-              ),
-              const Spacer(), // 하단으로 밀어내기 위한 공간
+                const SizedBox(height: 15),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: size.width * 0.075),
+                    child: Text(
+                      '수면 품질 평가',
+                      style: TextStyle(
+                        fontSize: size.width * 0.045,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  width: double.infinity,
+                  height: 1,
+                  color: const Color(0xFF444448),
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    children: [
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: const Color(0xFFAB7F55),
+                          inactiveTrackColor: const Color(0xFF444448),
+                          thumbColor: const Color(0xFFAB7F55),
+                          overlayColor: const Color(0xFFAB7F55).withOpacity(0.2),
+                          valueIndicatorColor: const Color(0xFFAB7F55),
+                          valueIndicatorTextStyle: const TextStyle(
+                            color: Color(0xFFE7E6E3),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        child: Slider(
+                          value: _sliderValue,
+                          min: 1.0,
+                          max: 10.0,
+                          divisions: 9,
+                          label: _sliderValue.round().toString(),
+                          onChanged: (value) {
+                            setState(() {
+                              _sliderValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
                 SizedBox(
                   width: double.infinity,
-                  height: 50,
+                  height: size.height * 0.07,
                   child: ElevatedButton(
                     onPressed: () {
                       // 완료 버튼 동작
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFAD7041),
-                      foregroundColor: const Color(0xFFE7E6E3),
+                      backgroundColor: const Color(0xFFD98D4B),
+                      foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13),
                       ),
                       elevation: 0,
                     ),
-                    child: const Text(
+                    child: Text(
                       '완료',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: size.width * 0.045,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFE7E6E3),
+                        color: Colors.white,
                       ),
                     ),
                   ),
                 ),
-            ],
+                const SizedBox(height: 30), // 하단 여백
+              ],
+            ),
           ),
         ),
       ),
