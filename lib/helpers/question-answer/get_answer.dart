@@ -1,4 +1,4 @@
-import 'package:cokothon25/helpers/get_dio.dart';
+import '../get_dio.dart';
 import 'package:flutter/foundation.dart';
 
 Future<Map<String, dynamic>> getAnswer() async {

@@ -1,5 +1,5 @@
-import 'package:cokothon25/settings_page.dart';
-import 'package:cokothon25/statistic_page.dart';
+import 'settings_page.dart';
+import 'statistic_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,4 +1,4 @@
-import 'package:cokothon25/controllers/bottom_navigation_controller.dart';
+import '../bottom_navigation_controller.dart';
 import 'package:get/get.dart';
 
 class NavigationBinding extends Bindings {
