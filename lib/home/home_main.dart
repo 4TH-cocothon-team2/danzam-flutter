@@ -145,7 +145,7 @@ class _HomeMainState extends State<HomeMain> {
                                 fontSize: 20,
                               ),
                             ),
-                            SizedBox(height: size.height * 0.05),
+                            SizedBox(height: size.height * 0.075),
                             Transform.scale(
                               scale: 1.5,
                               child: SimpleCircularProgressBar(
