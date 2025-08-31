@@ -1,16 +1,47 @@
-# cokothon25
+# 단잠: 카페인 리듬 분석기
 
-A new Flutter project.
+## 💡 프로젝트 소개
 
-## Getting Started
+**단잠**은 COKOTHON 4회차에서 제작된 안드로 앱으로, 사용자의 카페인 섭취량을 기록하고 분석하여 최적의 수면 시간을 제안하는 서비스입니다. 과도한 카페인 섭취는 수면 패턴을 방해할 수 있습니다. 단잠은 개인별 카페인 잔류량과 반감기를 계산하여 사용자의 건강한 수면 습관 형성을 돕습니다.
 
-This project is a starting point for a Flutter application.
+## 🚀 주요 기능
 
-A few resources to get you started if this is your first Flutter project:
+  - **카페인 섭취 기록:** 사용자가 마신 음료의 종류와 시간을 기록하여 일일 카페인 섭취량을 관리할 수 있습니다.
+  - **실시간 카페인 잔류량 추적:** 개인별 신체 정보(체중 등)를 기반으로 현재 몸에 남아있는 카페인 잔류량을 그래프로 시각화합니다.
+  - **최적 수면 시간 예측:** 카페인 잔류량 데이터를 분석하여 숙면에 들기 가장 좋은 시간을 예측하고 알려줍니다.
+  - **섭취 통계 분석:** 주간, 월간 카페인 섭취량을 통계 차트로 확인하여 자신의 섭취 패턴을 한눈에 파악할 수 있습니다.
+  - **정보 제공:** 카페인에 대한 유익한 정보를 제공하여 올바른 섭취 습관을 유도합니다.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📷 스크린샷
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style="text-align: center;">
+  <img 
+    src="https://github.com/user-attachments/assets/c213827f-1cd2-429b-b2ec-a2306db26f63" 
+    alt="image" 
+    width="1050" 
+    height="486"
+    style="display: block; margin: 0 auto 30px;"  <!-- 아래쪽 간격 30px -->
+  />
+  <img 
+    src="https://github.com/user-attachments/assets/3560fc26-2d7d-4192-a5af-ce0c44460291" 
+    alt="image" 
+    width="921" 
+    height="486"
+    style="display: block; margin: 0 auto;"
+  />
+</div>
+
+
+
+
+
+
+
+
+## 🤝 팀원
+
+  - 팀장(프론트, 국민대학교): 박성연
+  - 팀원(프론트, 국민대학교): 이지상
+  - 팀원(프론트, 국민대학교): 이영욱
+  - 팀원(백엔드, 숙명여자대학교): 김도연
+  - 팀원(백엔드, 국민대학교): 정다은
