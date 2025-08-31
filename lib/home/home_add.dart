@@ -1,5 +1,9 @@
+import 'package:Danzam/home/home_main.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../constants/colors.dart';
+import '../controllers/homepage_controller.dart';
+import 'helper/drink_item.dart';
 
 class HomeAdd extends StatefulWidget {
   const HomeAdd({super.key});
@@ -71,7 +75,7 @@ class _HomeAddState extends State<HomeAdd> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      Get.back();
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -97,8 +101,53 @@ class _HomeAddState extends State<HomeAdd> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      // 추가 버튼 동작
-                      Navigator.pop(context);
+                      final name = _nameController.text.trim();
+                      final count =
+                          int.tryParse(
+                            _countController.text.replaceAll(
+                              RegExp(r'[^0-9]'),
+                              '',
+                            ),
+                          ) ??
+                          0;
+                      final volume =
+                          int.tryParse(
+                            _volumeController.text.replaceAll(
+                              RegExp(r'[^0-9]'),
+                              '',
+                            ),
+                          ) ??
+                          0;
+                      final caffeine =
+                          int.tryParse(
+                            _caffeineController.text.replaceAll(
+                              RegExp(r'[^0-9]'),
+                              '',
+                            ),
+                          ) ??
+                          0;
+                      final intakeTime = _selectedTime ?? DateTime.now();
+
+                      final eatDate =
+                          '${intakeTime.year}-${intakeTime.month.toString().padLeft(2, '0')}-${intakeTime.day.toString().padLeft(2, '0')}';
+                      final eatTime =
+                          '${intakeTime.hour.toString().padLeft(2, '0')}:${intakeTime.minute.toString().padLeft(2, '0')}';
+
+                      final controller = Get.find<HomepageController>();
+
+                      final newItem = CaffeineItem(
+                        name: name.isNotEmpty ? name : '무명 음료',
+                        itemCount: count,
+                        volume: volume,
+                        caffeine: caffeine,
+                        eatDate: eatDate,
+                        eatTime: eatTime,
+                      );
+                      controller.updateInforms(newItem);
+
+                      controller.drinkedList.add(newItem);
+
+                      Get.back();
                     },
                     child: Container(
                       alignment: Alignment.center,

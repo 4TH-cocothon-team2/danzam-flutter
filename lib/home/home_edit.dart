@@ -1,7 +1,11 @@
+import 'package:Danzam/app_shell.dart';
+
+import '../controllers/homepage_controller.dart';
 import 'helper/drink_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/colors.dart';
+import 'home_main.dart';
 
 class HomeEdit extends StatefulWidget {
   final CaffeineItem item;
@@ -117,7 +121,54 @@ class _HomeEditState extends State<HomeEdit> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      // 추가 버튼 동작
+                      // 수정 버튼 동작
+                      final homepageController = Get.find<HomepageController>();
+                      // 기존 값 삭제 (날짜/시간 기준으로 식별)
+                      homepageController.drinkedList.removeWhere(
+                        (item) =>
+                            item.eatDate == widget.item.eatDate &&
+                            item.eatTime == widget.item.eatTime &&
+                            item.name == widget.item.name,
+                      );
+                      // 새 값 생성
+                      final selected = _selectedTime ?? DateTime.now();
+                      final eatDate =
+                          '${selected.year.toString().padLeft(4, '0')}-${selected.month.toString().padLeft(2, '0')}-${selected.day.toString().padLeft(2, '0')}';
+                      final eatTime =
+                          '${selected.hour.toString().padLeft(2, '0')}:${selected.minute.toString().padLeft(2, '0')}';
+
+                      final updatedItem = CaffeineItem(
+                        name: _nameController.text,
+                        itemCount:
+                            int.tryParse(
+                              _countController.text.replaceAll(
+                                RegExp(r'[^0-9]'),
+                                '',
+                              ),
+                            ) ??
+                            1,
+                        volume:
+                            int.tryParse(
+                              _volumeController.text.replaceAll(
+                                RegExp(r'[^0-9]'),
+                                '',
+                              ),
+                            ) ??
+                            0,
+                        caffeine:
+                            int.tryParse(
+                              _caffeineController.text.replaceAll(
+                                RegExp(r'[^0-9]'),
+                                '',
+                              ),
+                            ) ??
+                            0,
+                        eatDate: eatDate,
+                        eatTime: eatTime,
+                      );
+
+                      homepageController.updateEditedInforms(updatedItem);
+                      homepageController.drinkedList.add(updatedItem);
                       Get.back();
                     },
                     child: Container(
