@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../constants/colors.dart';
+import '../controllers/homepage_controller.dart';
 import '../sleep_info/sleep_summary_card.dart';
 import 'weekly_bar_chart.dart';
 
@@ -32,6 +35,7 @@ class _StatisticsState extends State<Statistics> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final controller = Get.find<HomepageController>();
     return Scaffold(
         backgroundColor: AppColors.darkGray,
         appBar: AppBar(
@@ -71,7 +75,9 @@ class _StatisticsState extends State<Statistics> {
                             child: Column(
                               children: [
                                 Text(
-                                  '210',
+                                  controller.drinkedList.isNotEmpty
+                                      ? controller.drinkedList.fold(0, (sum, e) => sum + e.caffeine).toString()
+                                      : '0',
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
                                     color: AppColors.orange,
@@ -102,7 +108,9 @@ class _StatisticsState extends State<Statistics> {
                             child: Column(
                               children: [
                                 Text(
-                                  '01:00',
+                                  (controller.drinkedList.isNotEmpty 
+                                      ? controller.drinkedList.last.eatTime?.toString() ?? '0'
+                                      : '0'),
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
                                     color: AppColors.orange,
@@ -137,7 +145,7 @@ class _StatisticsState extends State<Statistics> {
                             child: Column(
                               children: [
                                 Text(
-                                  '12:00',
+                                  '01:37',
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
                                     color: AppColors.orange,
@@ -168,14 +176,16 @@ class _StatisticsState extends State<Statistics> {
                             child: Column(
                               children: [
                                 Text(
-                                  '05:20',
+                                ((180 + 220 + 150 + 300 + 250 + 190 + (controller.drinkedList.isNotEmpty
+                                    ? controller.drinkedList.fold(0, (sum, e) => sum + e.caffeine)
+                                    : 0)) ~/ 7).toString(),
                                   style: TextStyle(
                                     fontSize: size.width * 0.07,
                                     color: AppColors.orange,
                                   ),
                                 ),
                                 Text(
-                                  'P.M.',
+                                  'mg',
                                   style: TextStyle(
                                     fontSize: size.width * 0.05,
                                     fontWeight: FontWeight.bold,
@@ -197,7 +207,9 @@ class _StatisticsState extends State<Statistics> {
                   children: [
                     const SizedBox(height: 20),
                     WeeklyBarChart(
-                      values: [180, 220, 150, 300, 250, 190, 210],
+                      values: [180, 220, 150, 300, 250, 190, controller.drinkedList.isNotEmpty 
+                          ? controller.drinkedList.fold(0, (sum, e) => sum + e.caffeine)
+                          : 0],
                       // 7일간 카페인 섭취량 (mg)
                       labels: getWeekdayLabels(), // 동적으로 계산된 요일 라벨
                     ),
