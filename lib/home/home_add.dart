@@ -22,11 +22,6 @@ class _HomeAddState extends State<HomeAdd> {
   @override
   void initState() {
     super.initState();
-    
-    // 기본값 설정
-    _countController.text = _formattedValue('개수', 1);
-    _volumeController.text = _formattedValue('용량', 350);
-    _caffeineController.text = _formattedValue('카페인 함유량', 150);
   }
 
   @override
@@ -238,7 +233,9 @@ class _HomeAddState extends State<HomeAdd> {
           Expanded(
             child: TextField(
               controller: controller,
-              keyboardType: label == '이름' ? TextInputType.text : TextInputType.number,
+              keyboardType: label == '이름'
+                  ? TextInputType.text
+                  : TextInputType.number,
 
               style: TextStyle(
                 color: AppColors.lightGray,
