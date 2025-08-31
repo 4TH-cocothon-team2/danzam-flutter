@@ -20,7 +20,7 @@
     alt="image" 
     width="1050" 
     height="486"
-    style="display: block; margin: 0 auto 30px;"  <!-- 아래쪽 간격 30px -->
+    style="display: block; margin: 0 auto 30px;"
   />
   <img 
     src="https://github.com/user-attachments/assets/3560fc26-2d7d-4192-a5af-ce0c44460291" 
