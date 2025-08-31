@@ -16,56 +16,80 @@ class _HomeAddState extends State<HomeAdd> {
   DateTime? _selectedTime;
 
   @override
+  void initState() {
+    super.initState();
+    
+    // 기본값 설정
+    _countController.text = _formattedValue('개수', 1);
+    _volumeController.text = _formattedValue('용량', 350);
+    _caffeineController.text = _formattedValue('카페인 함유량', 150);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.darkGray,
       appBar: null,
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.05,
-          vertical: size.height * 0.06,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '카페인 정보 등록하기',
-              style: TextStyle(
-                fontSize: size.width * 0.045,
-                color: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.05,
+                  vertical: size.height * 0.06,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '카페인 정보 등록하기',
+                      style: TextStyle(
+                        fontSize: size.width * 0.045,
+                        color: AppColors.lightGray,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.04),
+                    _buildInputRow(
+                      label: '이름',
+                      hintText: '아이스 아메리카노',
+                      controller: _nameController,
+                      context: context,
+                    ),
+                    _buildInputRow(
+                      label: '개수',
+                      hintText: '1잔',
+                      controller: _countController,
+                      context: context,
+                    ),
+                    _buildInputRow(
+                      label: '용량',
+                      hintText: '350ml',
+                      controller: _volumeController,
+                      context: context,
+                    ),
+                    _buildInputRow(
+                      label: '카페인 함유량',
+                      hintText: '150mg',
+                      controller: _caffeineController,
+                      context: context,
+                    ),
+                    SizedBox(height: size.height * 0.01),
+                    _buildTimePickerRow('섭취 시간', size),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: size.height * 0.04),
-            _buildInputRow(
-              label: '이름',
-              hintText: '아이스 아메리카노',
-              controller: _nameController,
-              context: context,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: size.width * 0.05,
+              right: size.width * 0.05,
+              bottom: 20,
             ),
-            _buildInputRow(
-              label: '개수',
-              hintText: '1잔',
-              controller: _countController,
-              context: context,
-            ),
-            _buildInputRow(
-              label: '용량',
-              hintText: '350ml',
-              controller: _volumeController,
-              context: context,
-            ),
-            _buildInputRow(
-              label: '카페인 함유량',
-              hintText: '150mg',
-              controller: _caffeineController,
-              context: context,
-            ),
-            SizedBox(height: size.height * 0.01),
-            _buildTimePickerRow('섭취 시간', size),
-            const Spacer(),
-            Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
@@ -80,13 +104,13 @@ class _HomeAddState extends State<HomeAdd> {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(size.width * 0.03),
-                        border: Border.all(color: Colors.white),
+                        border: Border.all(color: AppColors.lightGray),
                         color: Colors.transparent,
                       ),
                       child: Text(
                         '취소',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.lightGray,
                           fontSize: size.width * 0.045,
                         ),
                       ),
@@ -112,7 +136,7 @@ class _HomeAddState extends State<HomeAdd> {
                       child: Text(
                         '추가',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.lightGray,
                           fontSize: size.width * 0.045,
                         ),
                       ),
@@ -121,8 +145,8 @@ class _HomeAddState extends State<HomeAdd> {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -153,7 +177,7 @@ class _HomeAddState extends State<HomeAdd> {
             child: Text(
               label,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.lightGray,
                 fontSize: size.width * 0.04,
               ),
             ),
@@ -165,16 +189,17 @@ class _HomeAddState extends State<HomeAdd> {
           Expanded(
             child: TextField(
               controller: controller,
-              keyboardType: TextInputType.number,
+              keyboardType: label == '이름' ? TextInputType.text : TextInputType.number,
 
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.lightGray,
                 fontSize: size.width * 0.04,
               ),
               decoration: InputDecoration(
                 hintText: hintText,
+                hintStyle: TextStyle(color: AppColors.mediumGray),
                 filled: true,
-                fillColor: Colors.grey[800],
+                fillColor: AppColors.darkGray,
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.04,
                   vertical: size.height * 0.015,
@@ -263,7 +288,7 @@ class _HomeAddState extends State<HomeAdd> {
             child: Text(
               label,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.lightGray,
                 fontSize: size.width * 0.04,
               ),
             ),
@@ -334,7 +359,7 @@ class _HomeAddState extends State<HomeAdd> {
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
                 primary: AppColors.orange, // header background
-                onPrimary: Colors.white, // header text color
+                onPrimary: AppColors.lightGray, // header text color
                 onSurface: Colors.black, // body text color
               ),
               textButtonTheme: TextButtonThemeData(
@@ -361,7 +386,7 @@ class _HomeAddState extends State<HomeAdd> {
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
                 primary: AppColors.orange, // clock dial
-                onPrimary: Colors.white,
+                onPrimary: AppColors.lightGray,
                 onSurface: Colors.black,
               ),
             ),

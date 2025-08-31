@@ -25,13 +25,13 @@ class _HomeEditState extends State<HomeEdit> {
 
     _nameController = TextEditingController(text: widget.item.name);
     _countController = TextEditingController(
-      text: widget.item.itemCount.toString(),
+      text: _formattedValue('개수', widget.item.itemCount),
     );
     _volumeController = TextEditingController(
-      text: widget.item.volume.toString(),
+      text: _formattedValue('용량', widget.item.volume),
     );
     _caffeineController = TextEditingController(
-      text: widget.item.caffeine.toString(),
+      text: _formattedValue('카페인 함유량', widget.item.caffeine),
     );
   }
 
@@ -42,50 +42,64 @@ class _HomeEditState extends State<HomeEdit> {
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.darkGray,
       appBar: null,
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.05,
-          vertical: size.height * 0.06,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '카페인 정보',
-              style: TextStyle(
-                fontSize: size.width * 0.045,
-                color: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.05,
+                  vertical: size.height * 0.06,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '카페인 정보',
+                      style: TextStyle(
+                        fontSize: size.width * 0.045,
+                        color: AppColors.lightGray,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.04),
+                    _buildInputRow(
+                      label: '이름',
+                      hintText: '아이스 아메리카노',
+                      controller: _nameController,
+                      context: context,
+                    ),
+                    _buildInputRow(
+                      label: '개수',
+                      hintText: '1잔',
+                      controller: _countController,
+                      context: context,
+                    ),
+                    _buildInputRow(
+                      label: '용량',
+                      hintText: '355ml',
+                      controller: _volumeController,
+                      context: context,
+                    ),
+                    _buildInputRow(
+                      label: '카페인 함유량',
+                      hintText: '150mg',
+                      controller: _caffeineController,
+                      context: context,
+                    ),
+                    SizedBox(height: size.height * 0.01),
+                    _buildTimePickerRow('섭취 시간', size),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: size.height * 0.04),
-            _buildInputRow(
-              label: '이름',
-              hintText: '아이스 아메리카노',
-              controller: _nameController,
-              context: context,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: size.width * 0.05,
+              right: size.width * 0.05,
+              bottom: 20,
             ),
-            _buildInputRow(
-              label: '개수',
-              hintText: '1잔',
-              controller: _countController,
-              context: context,
-            ),
-            _buildInputRow(
-              label: '용량',
-              hintText: '355ml',
-              controller: _volumeController,
-              context: context,
-            ),
-            _buildInputRow(
-              label: '카페인 함유량',
-              hintText: '150mg',
-              controller: _caffeineController,
-              context: context,
-            ),
-            SizedBox(height: size.height * 0.01),
-            _buildTimePickerRow('섭취 시간', size),
-            const Spacer(),
-            Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
@@ -100,13 +114,13 @@ class _HomeEditState extends State<HomeEdit> {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(size.width * 0.03),
-                        border: Border.all(color: Colors.white),
+                        border: Border.all(color: AppColors.lightGray),
                         color: Colors.transparent,
                       ),
                       child: Text(
                         '취소',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.lightGray,
                           fontSize: size.width * 0.04,
                         ),
                       ),
@@ -132,7 +146,7 @@ class _HomeEditState extends State<HomeEdit> {
                       child: Text(
                         '수정',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.lightGray,
                           fontSize: size.width * 0.04,
                         ),
                       ),
@@ -141,8 +155,8 @@ class _HomeEditState extends State<HomeEdit> {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -173,7 +187,7 @@ class _HomeEditState extends State<HomeEdit> {
             child: Text(
               label,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.lightGray,
                 fontSize: size.width * 0.04,
               ),
             ),
@@ -185,16 +199,17 @@ class _HomeEditState extends State<HomeEdit> {
           Expanded(
             child: TextField(
               controller: controller,
-              keyboardType: TextInputType.number,
+              keyboardType: label == '이름' ? TextInputType.text : TextInputType.number,
 
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.lightGray,
                 fontSize: size.width * 0.04,
               ),
               decoration: InputDecoration(
                 hintText: hintText,
+                hintStyle: TextStyle(color: AppColors.mediumGray),
                 filled: true,
-                fillColor: Colors.grey[800],
+                fillColor: AppColors.darkGray,
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.04,
                   vertical: size.height * 0.015,
@@ -283,7 +298,7 @@ class _HomeEditState extends State<HomeEdit> {
             child: Text(
               label,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.lightGray,
                 fontSize: size.width * 0.04,
               ),
             ),
