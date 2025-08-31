@@ -150,6 +150,13 @@ class _HomeMainState extends State<HomeMain> {
                             Transform.scale(
                               scale: 1.5,
                               child: SimpleCircularProgressBar(
+                                key: ValueKey(
+                                  controller.leftCaffeineLevel.value,
+                                ),
+                                // <- 값이 바뀔 때마다 위젯 리빌드됨
+                                valueNotifier: ValueNotifier(
+                                  controller.leftCaffeineLevel.value,
+                                ),
                                 mergeMode: true,
                                 animationDuration: 1,
                                 progressStrokeWidth: 20,
@@ -167,9 +174,6 @@ class _HomeMainState extends State<HomeMain> {
                                     ),
                                   );
                                 },
-                                valueNotifier: ValueNotifier(
-                                  controller.leftCaffeineLevel.value,
-                                ),
                               ),
                             ),
                             SizedBox(height: size.height * 0.05),
@@ -244,9 +248,7 @@ class _HomeMainState extends State<HomeMain> {
                         )) {
                           Get.to(() => const Sleeping());
                         } else {
-                          ScaffoldMessenger.of(
-                            context,
-                          ).showSnackBar(SnackBar(content: Text('저장되었습니다')));
+                          Get.snackbar('성공', '저장되었습니다');
                         }
                       },
                       child: Container(
